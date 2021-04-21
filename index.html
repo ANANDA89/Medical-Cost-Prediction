@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Health Expense Prediction</title>
+</head>
+
+
+<body>
+ <div class="login">
+<div class="banner">
+ <h1>Health Expense Prediction</h1>
+</div>
+    <p> Hey! This model has been created to predict Health Expenses of different subjects. <br>
+     </p>
+     <br><br>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="Age"> Age </label>
+        <select id="Age" name="Age">
+        </select>
+    <br><br>
+        <script>
+            var options=""
+                for( var i= 18;i<=72;i++)
+                {options+="<option>"+i+"<option>"}
+            document.getElementById("Age").innerHTML=options
+        </script>
+
+        <p>Sex</p>
+        <input type="radio" name="Sex" value="Male">Male
+        <input type="radio" name="Sex" value="Female">Female
+
+
+    <br><br>
+        <label for="Children"> Children </label>
+        <select id="Children" name="Children">
+            <option value="0">select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    <br><br>
+        <label for="Smoker"> Smoker </label><br><br>
+        <select id="Smoker" name="Smoker">
+            <option value="0">select</option>
+            <option value="Male">Yes</option>
+            <option value="Female">No</option>
+        </select>
+    <br><br>
+        <label for="Region"> Region </label>
+        <select id="Region" name="Region">
+            <option value="0">select</option>
+            <option value="southwest">southwest</option>
+            <option value="southeast">southeast</option>
+            <option value="northwest">northwest</option>
+            <option value="northeast">northeast</option>
+        </select>
+    <br><br>
+
+
+
+        <input type="submit", value = "Submit">
+    </form>
+
+   <br>
+   <br>
+
+     <br><br><h3>{{ prediction_text }}</h3>
+ </div>
+
+</body>
+
+</html>
+
+
+
+
+
